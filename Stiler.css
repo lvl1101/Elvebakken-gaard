@@ -1,0 +1,104 @@
+
+
+.headerstyles{
+    font-family: cursive;
+    text-align: center;
+}
+
+.image-container {
+ display: flex;
+  justify-content: center; /* centers horizontally */
+/*  align-items: center;     /* centers vertically */
+/*  height: 100vh;           /* optional: makes the container full height */
+}
+
+.skrift1{
+    text-align: center;
+}
+
+.link1{
+    text-align: center;
+}
+
+.link2{
+    text-align: center;
+}
+
+/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.home-button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.home-button:hover {
+  background-color: #555;
+}
+
+.dyr-knapp {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+
+}
+
+.dyr-knapp:hover {
+  background-color: #555;
+}
+
+/* Instillinger*/
+.settings-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 0%;
+}
+
+.settings-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.settings-menu {
+  display: none;
+  position: absolute;
+  top: 50px; /* Adjust as needed */
+  right: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 100;
+}
+
+body.dark-theme {
+  background: #222;
+  color: #eee;
+}
+
+body.light-theme {
+  background: #fff;
+  color: #222;
+}
