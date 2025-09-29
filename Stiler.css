@@ -46,9 +46,10 @@ header {
   header {
     padding: 35px 0;
   }
-
-  .home-button{
-    padding: 15 0;
+  
+  .home-button, .settings-button, .dyr-knapp {
+    font-size: 1.2em;     /* Make buttons larger on mobile */
+    padding: 12px 20px;   /* Increase button padding */
   }
 }
 .home-button {
@@ -111,4 +112,3 @@ body.light-theme {
   background: #fff;
   color: #222;
 }
-
