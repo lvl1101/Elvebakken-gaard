@@ -42,7 +42,15 @@ header {
   padding: 0 20px;
   position: relative;
 }
+@media (max-width: 600px) {
+  header {
+    padding: 25px 0;
+  }
 
+  .home-button{
+    padding: 15 0;
+  }
+}
 .home-button {
   color: #fff;
   text-decoration: none;
