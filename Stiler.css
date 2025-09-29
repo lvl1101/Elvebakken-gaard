@@ -1,118 +1,113 @@
 
 
-.headerstyles{
-    font-family: cursive;
-    text-align: center;
-}
+  .headerstyles{
+      font-family: cursive;
+      text-align: center;
+  }
 
-.image-container {
- display: flex;
-  justify-content: center;
-}
-
-.skrift1{
-    text-align: center;
-}
-
-.link1{
-    text-align: center;
-}
-
-.link2{
-    text-align: center;
-}
-
-/* styles.css */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background-color: #333;
-  padding: 10px 0;
-}
-
-.navbar {
+  .image-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0 20px;
-  position: relative;
-}
-/*@media (max-width: 600px) {
+    justify-content: center;
+  }
+
+  .skrift1{
+      text-align: center;
+  }
+
+  .link1{
+      text-align: center;
+  }
+
+  .link2{
+      text-align: center;
+  }
+
+  /* styles.css */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
   header {
-    padding: 35px 0;
+    background-color: #333;
+    padding: 10px 0;
   }
-  
-  .home-button, .settings-button, .dyr-knapp {
-    font-size: 1.2em;
-    padding: 12px 20px;
+
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
   }
-}*/
-.mobile-container {
-  max-width: 480px;
-  margin: auto;
-  height: 500px;
-  border-radius: 10px;
-}
-.home-button {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
+  @media (max-width: 600px) {
+    header {
+      padding: 35px 0;
+    }
+    
+    .home-button, .settings-button, .dyr-knapp {
+      font-size: 1.2em;
+      padding: 12px 20px;
+    }
+  }
 
-.home-button:hover {
-  background-color: #555;
-}
+  .home-button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
 
-.dyr-knapp {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background 0.2s;
+  .home-button:hover {
+    background-color: #555;
+  }
 
-}
+  .dyr-knapp {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
 
-.dyr-knapp:hover {
-  background-color: #555;
-}
+  }
 
-/* Instillinger*/
-.settings-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: 0%;
-}
+  .dyr-knapp:hover {
+    background-color: #555;
+  }
 
-.settings-icon {
-  width: 24px;
-  height: 24px;
-}
+  /* Instillinger*/
+  .settings-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 0%;
+  }
 
-.settings-menu {
-  display: none;
-  position: absolute;
-  top: 50px; /* Adjust as needed */
-  left: 20px;
-  background: #a19f9f00;
-  border: 1px solid #ccc;
-  padding: 10px;
-  z-index: 100;
-}
+  .settings-icon {
+    width: 24px;
+    height: 24px;
+  }
 
-body.dark-theme {
-  background: #222;
-  color: #eee;
-}
+  .settings-menu {
+    display: none;
+    position: absolute;
+    top: 50px; /* Adjust as needed */
+    left: 20px;
+    background: #a19f9f00;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 100;
+  }
 
-body.light-theme {
-  background: #fff;
-  color: #222;
-}
+  body.dark-theme {
+    background: #222;
+    color: #eee;
+  }
+
+  body.light-theme {
+    background: #fff;
+    color: #222;
+  }
