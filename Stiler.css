@@ -1,3 +1,5 @@
+
+
 .headerstyles{
     font-family: cursive;
     text-align: center;
@@ -5,9 +7,7 @@
 
 .image-container {
  display: flex;
-  justify-content: center; /* centers horizontally */
-/*  align-items: center;     /* centers vertically */
-/*  height: 100vh;           /* optional: makes the container full height */
+  justify-content: center;
 }
 
 .skrift1{
@@ -40,15 +40,21 @@ header {
   padding: 0 20px;
   position: relative;
 }
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
   header {
     padding: 35px 0;
   }
   
   .home-button, .settings-button, .dyr-knapp {
-    font-size: 1.2em;     /* Make buttons larger on mobile */
-    padding: 12px 20px;   /* Increase button padding */
+    font-size: 1.2em;
+    padding: 12px 20px;
   }
+}*/
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  height: 500px;
+  border-radius: 10px;
 }
 .home-button {
   color: #fff;
@@ -110,5 +116,3 @@ body.light-theme {
   background: #fff;
   color: #222;
 }
-
-
