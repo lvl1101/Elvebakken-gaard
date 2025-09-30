@@ -43,7 +43,7 @@
       padding: 10px 0;
     }
     
-    .home-button, .settings-button, .dyr-knapp, .settings-menu {
+    .home-button, .settings-button, .dyr-knapp{
       font-size: 1.2em;
       padding: 12px 20px;
     }
@@ -92,7 +92,7 @@
   .settings-menu {
     display: none;
     position: absolute;
-    top: 50px; /* Adjust as needed */
+    top: 100%; /* Adjust as needed */
     left: 20px;
     background: #a19f9f00;
     border: 1px solid #ccc;
