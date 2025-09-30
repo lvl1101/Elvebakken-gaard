@@ -47,6 +47,11 @@
       font-size: 1.2em;
       padding: 12px 20px;
     }
+
+    .settings-menu{
+      top: 70px;
+      left: 20px;
+    }
   }
 
   .home-button {
@@ -92,7 +97,7 @@
   .settings-menu {
     display: none;
     position: absolute;
-    top: 100%; /* Adjust as needed */
+    top: 50px; /* Adjust as needed */
     left: 20px;
     background: #a19f9f00;
     border: 1px solid #ccc;
