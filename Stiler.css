@@ -47,7 +47,7 @@
   }
   @media (max-width: 600px) {
     header {
-      padding: 10px 0;
+      padding: 5px 0;
     }
     
     .home-button, .settings-button, .dyr-knapp{
