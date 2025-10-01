@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsMenu = document.getElementById('settingsMenu');
+        const themeInputs = document.querySelectorAll('input[name="theme"]');
+        const langSelect = document.getElementById("language-select");
+
+        // --- Språkoversettelser ---
+        const translations = {
+            no: {
+            dyrKnapp: "Dyrene våre",
+            themeSummary: "Tema",
+            themeLight: "Lyst tema",
+            themeDark: "Mørkt tema",
+            languageSummary: "Språk",
+            chooseLanguage: "Velg språk:",
+            langNo: "Norsk",
+            langEn: "English (Engelsk)",
+            langDe: "Deutsch (Tysk)"
+            },
+            en: {
+            dyrKnapp: "Our animales",
+            themeSummary: "Theme",
+            themeLight: "Light theme",
+            themeDark: "Dark theme",
+            languageSummary: "Language",
+            chooseLanguage: "Choose language:",
+            langNo: "Norsk (Norwegan)",
+            langEn: "English",
+            langDe: "Deutsch (German)"
+            }
+        };
+
+        // --- Språkbytte ---
+        function setLanguage(lang) {
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+            el.innerHTML = translations[lang][key]; // <--- endret fra textContent
+        });
+        localStorage.setItem("language", lang);
+}
+
+
+        langSelect.addEventListener("change", (e) => {
+            setLanguage(e.target.value);
+        });
+
+        // --- Last lagret språk ---
+        const savedLang = localStorage.getItem("language") || "no";
+        langSelect.value = savedLang;
+        setLanguage(savedLang);
+
+        // --- Last lagret tema ---
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.classList.add(savedTheme + '-theme');
+            document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked = true;
+        } else {
+            document.body.classList.add('light-theme'); // Default
+        }
+
+        // --- Tema-bytte ---
+        themeInputs.forEach(function(input) {
+            input.addEventListener('change', function() {
+            document.body.classList.remove('light-theme', 'dark-theme');
+            document.body.classList.add(this.value + '-theme');
+            localStorage.setItem('theme', this.value);
+            });
+        });
+
+        // --- Toggle meny ---
+        settingsBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const isOpen = settingsMenu.style.display === 'block';
+            settingsMenu.style.display = isOpen ? 'none' : 'block';
+            settingsBtn.setAttribute("aria-expanded", !isOpen);
+        });
+
+        // --- Klikk utenfor lukker menyen ---
+        document.addEventListener('click', function(event) {
+            if (!settingsMenu.contains(event.target) && !settingsBtn.contains(event.target)) {
+            settingsMenu.style.display = 'none';
+            settingsBtn.setAttribute("aria-expanded", false);
+            }
+        });
+        });
+    </script>
+</body>
+</html>

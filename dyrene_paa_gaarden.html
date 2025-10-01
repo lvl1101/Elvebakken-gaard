@@ -10,60 +10,137 @@
     <header>
         <nav class="navbar">
             <button class="settings-button" id="settingsBtn">
-      <img src="settings-icon.png" alt="Settings" class="settings-icon">
+                <img src="settings-icon.png" alt="Settings" class="settings-icon">
             </button>
-            <a href="index.html" class="home-button">Home</a>
+            <a href="index.html" class="home-button" data-translate="hjemKnapp">Hjem</a>
 
-            <div id="settingsMenu" class="settings-menu">
-                <label>
-                    <input type="radio" name="theme" value="light" checked> Light Theme
-                </label>
-                <label>
-                    <input type="radio" name="theme" value="dark"> Dark Theme
-                </label>
+            <!-- Instillinger m/ meny -->
+            <div id="settingsMenu" class="settings-menu" role="menu">
+                <!-- Tema -->
+                <details>
+                    <summary data-translate="themeSummary">Tema</summary>
+                    <label>
+                        <input type="radio" name="theme" value="light" checked>
+                        <span data-translate="themeLight">Lyst tema</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="dark">
+                        <span data-translate="themeDark">Mørkt tema</span>
+                    </label>
+                </details>
+
+                <!-- Språk -->
+                <details>
+                    <summary data-translate="languageSummary">Språk</summary>
+                    <label for="language-select" data-translate="chooseLanguage">Velg språk:</label>
+                    <select id="language-select">
+                        <option value="no" data-translate="langNo">Norsk</option>
+                        <option value="en" data-translate="langEn">English</option>
+                        <option value="de" data-translate="langDe">Deutsch</option>
+                    </select>
+                </details>
             </div>
         </nav>
     </header>
     
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
         const settingsBtn = document.getElementById('settingsBtn');
         const settingsMenu = document.getElementById('settingsMenu');
         const themeInputs = document.querySelectorAll('input[name="theme"]');
-        
-        // Load saved theme from localStorage
+        const langSelect = document.getElementById("language-select");
+
+        // --- Språkoversettelser ---
+        const translations = {
+            no: {
+                hjemKnapp: "Hjem",
+                themeSummary: "Tema",
+                themeLight: "Lyst tema",
+                themeDark: "Mørkt tema",
+                languageSummary: "Språk",
+                chooseLanguage: "Velg språk:",
+                langNo: "Norsk",
+                langEn: "English (Engelsk)",
+                langDe: "Deutsch (Tysk)"
+            },
+            en: {
+                hjemKnapp: "Home",
+                themeSummary: "Theme",
+                themeLight: "Light theme",
+                themeDark: "Dark theme",
+                languageSummary: "Language",
+                chooseLanguage: "Choose language:",
+                langNo: "Norsk (Norwegan)",
+                langEn: "English",
+                langDe: "Deutsch (German)"
+            },
+            de: {
+                hjemKnapp: "Startseite",
+                themeSummary: "Thema",
+                themeLight: "Helles Thema",
+                themeDark: "Dunkles Thema",
+                languageSummary: "Sprache",
+                chooseLanguage: "Sprache wählen:",
+                langNo: "Norsk (Norwegisch)",
+                langEn: "English (Englisch)",
+                langDe: "Deutsch"
+            }
+        };
+
+        // --- Språkbytte ---
+        function setLanguage(lang) {
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+            el.innerHTML = translations[lang][key]; // <--- endret fra textContent
+        });
+        localStorage.setItem("language", lang);
+}
+
+
+        langSelect.addEventListener("change", (e) => {
+            setLanguage(e.target.value);
+        });
+
+        // --- Last lagret språk ---
+        const savedLang = localStorage.getItem("language") || "no";
+        langSelect.value = savedLang;
+        setLanguage(savedLang);
+
+        // --- Last lagret tema ---
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             document.body.classList.add(savedTheme + '-theme');
-    // Set the correct radio button as checked
-    document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked = true;
+            document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked = true;
         } else {
-            document.body.classList.add('light-theme'); // Default theme
-            }
-            
-        // Toggle settings menu visibility
+            document.body.classList.add('light-theme'); // Default
+        }
+
+        // --- Tema-bytte ---
+        themeInputs.forEach(function(input) {
+            input.addEventListener('change', function() {
+            document.body.classList.remove('light-theme', 'dark-theme');
+            document.body.classList.add(this.value + '-theme');
+            localStorage.setItem('theme', this.value);
+            });
+        });
+
+        // --- Toggle meny ---
         settingsBtn.addEventListener('click', function(event) {
             event.stopPropagation();
-            settingsMenu.style.display = settingsMenu.style.display === 'block' ? 'none' : 'block';
+            const isOpen = settingsMenu.style.display === 'block';
+            settingsMenu.style.display = isOpen ? 'none' : 'block';
+            settingsBtn.setAttribute("aria-expanded", !isOpen);
         });
 
-    // Theme switching and saving to localStorage
-    themeInputs.forEach(function(input) {
-    input.addEventListener('change', function() {
-        document.body.classList.remove('light-theme', 'dark-theme');
-        document.body.classList.add(this.value + '-theme');
-        localStorage.setItem('theme', this.value); // Save theme
-        });
-    });
-
-    // Close the menu when clicking outside
-    document.addEventListener('click', function(event) {
-    if (!settingsMenu.contains(event.target) && !settingsBtn.contains(event.target)) {
-        settingsMenu.style.display = 'none';
+        // --- Klikk utenfor lukker menyen ---
+        document.addEventListener('click', function(event) {
+            if (!settingsMenu.contains(event.target) && !settingsBtn.contains(event.target)) {
+            settingsMenu.style.display = 'none';
+            settingsBtn.setAttribute("aria-expanded", false);
             }
         });
-    });
+        });
     </script>
 </body>
 </html>

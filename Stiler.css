@@ -9,7 +9,10 @@
   }
 
   .skrift1{
-      text-align: center;
+    font-size: 1.5em;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0.3em 0;       /* Juster avstand over og under paragrafen */
   }
 
   .link1{
@@ -18,6 +21,10 @@
 
   .link2{
       text-align: center;
+  }
+
+  .link3{
+    text-align: center;
   }
 
   /* styles.css */
@@ -114,4 +121,3 @@
     background: #fff;
     color: #222;
   }
-
