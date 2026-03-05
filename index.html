@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvebakk gård</title>
+    <link rel="stylesheet" href="Stiler.css">
+    <script src="prsojekt.js"></script>
+</head>
+<body class="Start">
+    <header>
+        <nav class="navbar">
+            <button class="settings-button" id="settingsBtn">
+                <img src="settings-icon.png" alt="Settings" class="settings-icon">
+            </button>
+            <a href="index.html" class="hjem-knapp" data-translate="hjemKnapp">Hjem</a>
+            <a href="dyrene_paa_gaarden.html" class="dyr-knapp" data-translate="dyrKnapp">Dyrene våre</a>
+            <a href="historien_til_elvebakk_gård.html" class="historie-knapp" data-translate="historieKnapp">Historien til gården</a>
+
+            <!-- Instillinger m/ meny -->
+            <div id="settingsMenu" class="settings-menu" role="menu">
+                <!-- Tema -->
+                <details>
+                    <summary data-translate="themeSummary">Tema</summary>
+                    <label>
+                        <input type="radio" name="theme" value="light" checked>
+                        <span data-translate="themeLight">Lyst tema</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="dark">
+                        <span data-translate="themeDark">Mørkt tema</span>
+                    </label>
+                </details>
+
+                <!-- Språk -->
+                <details>
+                    <summary data-translate="languageSummary">Språk</summary>
+                    <label for="language-select" data-translate="chooseLanguage">Velg språk:</label>
+                    <select id="language-select">
+                        <option value="no" data-translate="langNo">Norsk</option>
+                        <option value="en" data-translate="langEn">English</option>
+                        <option value="de" data-translate="langDe">Deutsch</option>
+                        <option value="es" data-translate="langEs">Español</option>
+                    </select>
+                </details>
+            </div>
+        </nav>
+    </header>
+   
+    <h1 class="headerstyles">
+        <span data-translate="hello">Hei!</span><br>
+        <span data-translate="welcomeTitle">Velkommen til siden vår.</span>
+    </h1>
+    <p class="image-container"><img src="Elvebakk gård.png" alt="Gårdslogo" style="width: 200px;height: 200px;"></p>
+
+    <p class="skrift1" data-translate="farmDescription1">
+        Her på gården har vi en hund, to katter, 16 høner og en hane. Vi har også bier.
+    </p>
+    <p class="skrift1" data-translate="farmDescription2">
+            Vi er selvforsynte, hvor vi henter egg fra hønene og planter grønsaker og kjøtt fra egne dyr.
+    </p>
+
+    
+    <p class="link1">
+        <a href="https://www.youtube.com/@ElvebakkG%C3%A5rd" data-translate="youtubeLink">
+            Besøk gjerne YouTube kanalen vår.
+        </a>
+    </p>
+    <p class="link2">
+        <a href="https://www.facebook.com/profile.php?id=100093190356193" data-translate="facebookLink">
+            Eller så kan du besøke facebook siden
+        </a>
+    </p>
+    <p class="link3">
+        <a href="https://www.instagram.com/eldervika_og_elvebakk_gaard/" data-translate="instagramLink">
+            Vi har også en instagram som du kan sjekke
+        </a>
+    </p>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBXsjj6SsaHfblcWBtfv61M9Q8Hg_73Mss",
+            authDomain: "elvebakk-gaard.firebaseapp.com",
+            projectId: "elvebakk-gaard",
+            storageBucket: "elvebakk-gaard.firebasestorage.app",
+            messagingSenderId: "279125591501",
+            appId: "1:279125591501:web:44715d7e82ada6c1803084"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+</body>
+</html>
+
