@@ -158,22 +158,6 @@ const loginBoks = document.getElementById('loginBoks');
 const supabaseUrl = 'https://naogkvryaxnbkzspqakn.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hb2drdnJ5YXhuYmt6c3BxYWtuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDYyODAsImV4cCI6MjA4ODI4MjI4MH0.IHkpF8GMZD4GPawrI0Se73N18E__P7Ys7BmhT8fr29o'
 
-// Funksjon for å logge inn
-loggInnKnapp.onclick = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: epostFelt.value,
-        password: passordFelt.value,
-    });
-
-    if (error) {
-        alert("Feil ved innlogging: " + error.message);
-    } else {
-        alert("Du er nå logget inn!");
-        loginBoks.style.display = "none";      // Skjul login
-        opplastingsSone.style.display = "block"; // Vis opplasting
-    }
-};
-
 
 async function lastInnBilder() {
     const galleri = document.getElementById('bildeGalleri');
