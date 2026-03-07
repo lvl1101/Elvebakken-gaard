@@ -1,137 +1,215 @@
-  .headerstyles{
-      font-family: cursive;
-      text-align: center;
-  }
+.headerstyles{
+    font-family: cursive;
+    text-align: center;
+}
 
-  .image-container {
+.image-container {
+display: flex;
+  justify-content: center;
+}
+
+.skrift1{
+  font-size: 1.5em;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0.3em 0;       /* Juster avstand over og under paragrafen */
+}
+
+.link1{
+    text-align: center;
+}
+
+.link2{
+    text-align: center;
+}
+
+.link3{
+  text-align: center;
+}
+
+/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.navbar {
   display: flex;
-    justify-content: center;
-  }
-
-  .skrift1{
-    font-size: 1.5em;
-    line-height: 1.4;
-    text-align: center;
-    margin: 0.3em 0;       /* Juster avstand over og under paragrafen */
-  }
-
-  .link1{
-      text-align: center;
-  }
-
-  .link2{
-      text-align: center;
-  }
-
-  .link3{
-    text-align: center;
-  }
-
-  /* styles.css */
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+@media (max-width: 600px) {
   header {
-    background-color: #333;
-    padding: 10px 0;
+    padding: 5px 0;
+  }
+  
+  .hjem-knapp, .settings-button, .dyr-knapp, .historie-knapp{
+    font-size: 1.2em;
+    padding: 12px 20px;
   }
 
-  .navbar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 20px;
-    position: relative;
-  }
-  @media (max-width: 600px) {
-    header {
-      padding: 5px 0;
-    }
-    
-    .hjem-knapp, .settings-button, .dyr-knapp, .historie-knapp{
-      font-size: 1.2em;
-      padding: 12px 20px;
-    }
-
-    .settings-menu{
-      top: 75px;
-      left: 20px;
-    }
-  }
-
-  .hjem-knapp {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background 0.2s;
-  }
-
-  .hjem-knapp:hover {
-    background-color: #555;
-  }
-
-  .dyr-knapp {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background 0.2s;
-
-  }
-
-  .historie-knapp {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background 0.2s;
-
-  }
-
-  .dyr-knapp:hover {
-    background-color: #555;
-  }
-
-  .historie-knapp:hover {
-    background-color: #555;
-  }
-
-  /* Instillinger*/
-  .settings-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 0%;
-  }
-
-  .settings-icon {
-    width: 24px;
-    height: 24px;
-  }
-
-  .settings-menu {
-    display: none;
-    position: absolute;
-    top: 50px; /* Adjust as needed */
+  .settings-menu{
+    top: 75px;
     left: 20px;
-    background: #304341c6;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 100;
   }
+}
 
-  body.dark-theme {
-    background: #222;
-    color: #eee;
-  }
+.hjem-knapp {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
 
-  body.light-theme {
-    background: #fff;
-    color: #222;
-  }
+.hjem-knapp:hover {
+  background-color: #555;
+}
+
+.dyr-knapp {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+
+}
+
+.historie-knapp {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+
+}
+
+.dyr-knapp:hover {
+  background-color: #555;
+}
+
+.historie-knapp:hover {
+  background-color: #555;
+}
+
+/* Instillinger*/
+.settings-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 0%;
+}
+
+.settings-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.settings-menu {
+  display: none;
+  position: absolute;
+  top: 50px; /* Adjust as needed */
+  left: 20px;
+  background: #304341c6;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 100;
+}
+
+body.dark-theme {
+  background: #222;
+  color: #eee;
+}
+
+body.light-theme {
+  background: #fff;
+  color: #222;
+}
+
+/* Reset basic margins */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Limits width on desktop */
+  margin: 0 auto;  /* Centers the box */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.inputbox {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  display: none; /* Hidden by default */
+}

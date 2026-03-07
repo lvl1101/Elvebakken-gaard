@@ -1,3 +1,20 @@
+// Denne funksjonen kjører med en gang siden lastes
+async function sjekkTilgang() {
+    const { data: { user } } = await supabase.auth.getUser();
+
+    const opplastingsSone = document.getElementById('opplastingsSone');
+
+    if (user) {
+        // Hvis brukeren er logget inn, vis knappen
+        opplastingsSone.style.display = "block";
+    } else {
+        // Hvis ikke, hold den skjult
+        opplastingsSone.style.display = "none";
+    }
+}
+
+sjekkTilgang();
+
 document.addEventListener('DOMContentLoaded', function() {
 const settingsBtn = document.getElementById('settingsBtn');
 const settingsMenu = document.getElementById('settingsMenu');
@@ -189,3 +206,8 @@ async function lastInnBilder() {
 
 // Kjør denne funksjonen med en gang siden laster
 lastInnBilder();
+
+async function loggUt() {
+    await supabase.auth.signOut();
+    window.location.href = "index.html"; // Sender deg "hjem" etter utlogging
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <!-- Fixed: Added 'device-width' and comma separation -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Stiler.css">
+    <!-- Supabase JS Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <!-- Added 'id' to the form for JS targeting -->
+            <form id="loginForm">
+                <div class="inputbox">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="inputbox">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="inputbox">
+                    <!-- Changed to type="submit" inside a form -->
+                    <button type="submit" id="loginBtn">Login</button>
+                </div>
+                <!-- Error message display -->
+                <p id="errorMessage" class="error"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
