@@ -48,5 +48,17 @@
         </nav>
     </header>
 
+    <!-- Denne vises kun når du er logget inn -->
+    <div id="adminPanel" style="display:none;">
+        <h3>Last opp nytt bilde her</h3>
+        <input type="file" id="bildeValg" accept="image/*">
+        <!-- Vi forteller knappen hvilken mappe den skal bruke -->
+        <button id="lastOppKnapp" data-mappe="Bilder">Legg ut bilde</button>
+    </div>
+
+    <!-- Her dukker bildene opp -->
+    <div id="bildeGalleri"></div>
+
+
 </body>
 </html>
