@@ -1,18 +1,3 @@
-// Denne funksjonen kjører med en gang siden lastes
-async function sjekkTilgang() {
-    const { data: { user } } = await supabase.auth.getUser();
-
-    const opplastingsSone = document.getElementById('opplastingsSone');
-
-    if (user) {
-        // Hvis brukeren er logget inn, vis knappen
-        opplastingsSone.style.display = "block";
-    } else {
-        // Hvis ikke, hold den skjult
-        opplastingsSone.style.display = "none";
-    }
-}
-
 sjekkTilgang();
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -166,48 +151,3 @@ document.addEventListener('click', function(event) {
     }
 });
 });
-
-const epostFelt = document.getElementById('epost');
-const passordFelt = document.getElementById('passord');
-const loggInnKnapp = document.getElementById('loggInnKnapp');
-const opplastingsSone = document.getElementById('opplastingsSone');
-const loginBoks = document.getElementById('loginBoks');
-const supabaseUrl = 'https://naogkvryaxnbkzspqakn.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hb2drdnJ5YXhuYmt6c3BxYWtuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDYyODAsImV4cCI6MjA4ODI4MjI4MH0.IHkpF8GMZD4GPawrI0Se73N18E__P7Ys7BmhT8fr29o'
-
-
-async function lastInnBilder() {
-    const galleri = document.getElementById('bildeGalleri');
-    galleri.innerHTML = ""; // Tømmer galleriet før vi laster inn på nytt
-
-    // 1. Hent listen over alle filer i 'bilder'-mappen
-    const { data, error } = await supabase.storage
-        .from('bilder')
-        .list('', { limit: 100 });
-
-    if (error) {
-        console.error("Kunne ikke hente bilder:", error.message);
-        return;
-    }
-
-    // 2. Lag et bilde-element for hver fil som finnes
-    data.forEach(fil => {
-        const { data: urlData } = supabase.storage
-            .from('bilder')
-            .getPublicUrl(fil.name);
-
-        const img = document.createElement('img');
-        img.src = urlData.publicUrl;
-        img.style.width = "250px"; // Juster størrelsen her
-        img.style.margin = "10px";
-        galleri.appendChild(img);
-    });
-}
-
-// Kjør denne funksjonen med en gang siden laster
-lastInnBilder();
-
-async function loggUt() {
-    await supabase.auth.signOut();
-    window.location.href = "index.html"; // Sender deg "hjem" etter utlogging
-}

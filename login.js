@@ -14,6 +14,8 @@ const errorMessage = document.getElementById('errorMessage');
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    console.log('✅ Form submitted');
+
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -22,20 +24,27 @@ loginForm.addEventListener('submit', async (event) => {
     errorMessage.style.display = 'none';
 
     try {
+        console.log('🔐 Calling Supabase auth...');
+
         const { data, error } = await supabase.auth.signInWithPassword({
             email: email,
             password: password,
         });
 
+        console.log('📊 Supabase response:', { data, error });
+
         if (error) {
+            console.error('❌ Supabase error:', error);
             throw error;
         }
 
-        // 4. Success: Redirect
+        console.log('✅ Login successful!');
+        console.log('🔄 Redirecting to index.html...');
+        console.log('📁 Current path:', window.location.pathname);
         window.location.href = 'index.html';
 
     } catch (error) {
-        console.error('Login Error:', error.message);
+        console.error('❌ Login Error:', error.message);
         errorMessage.textContent = error.message;
         errorMessage.style.display = 'block';
         
