@@ -1,5 +1,3 @@
-sjekkTilgang();
-
 document.addEventListener('DOMContentLoaded', function() {
 const settingsBtn = document.getElementById('settingsBtn');
 const settingsMenu = document.getElementById('settingsMenu');
