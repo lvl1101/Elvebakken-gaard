@@ -149,3 +149,62 @@ document.addEventListener('click', function(event) {
     }
 });
 });
+
+const galleri = document.getElementById('bildeGalleri');
+const adminPanel = document.getElementById('adminPanel');
+const lastOppKnapp = document.getElementById('lastOppKnapp');
+const mappeNavn = lastOppKnapp.getAttribute('data-mappe'); // Henter f.eks. "dyra"
+
+// 1. Sjekk om bruker er logget inn
+async function sjekkStatus() {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+        adminPanel.style.display = "block";
+    }
+    hentBilder();
+}
+
+// 2. Last opp bilde til spesifikk mappe
+lastOppKnapp.onclick = async () => {
+    const fil = document.getElementById('bildeValg').files[0];
+    if (!fil) return alert("Velg et bilde!");
+
+    const filSti = `${mappeNavn}/${Date.now()}_${fil.name}`;
+    
+    const { error } = await supabase.storage
+        .from('bilder')
+        .upload(filSti, fil);
+
+    if (error) {
+        alert("Feil: " + error.message);
+    } else {
+        alert("Bildet er lagret i " + mappeNavn);
+        hentBilder(); // Oppdater galleriet
+    }
+};
+
+// 3. Hent bilder kun fra denne sidens mappe
+async function hentBilder() {
+    galleri.innerHTML = "Laster bilder...";
+    
+    const { data, error } = await supabase.storage
+        .from('bilder')
+        .list(mappeNavn);
+
+    if (error) return console.error(error);
+
+    galleri.innerHTML = ""; // Tømmer tekst
+    data.forEach(fil => {
+        const { data: urlData } = supabase.storage
+            .from('bilder')
+            .getPublicUrl(`${mappeNavn}/${fil.name}`);
+
+        const img = document.createElement('img');
+        img.src = urlData.publicUrl;
+        img.style.width = "200px";
+        img.style.margin = "10px";
+        galleri.appendChild(img);
+    });
+}
+
+sjekkStatus();
