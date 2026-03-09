@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
-    <!-- Supabase CDN - Load FIRST -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -30,13 +29,9 @@
     <script>
         console.log("Hello - JavaScript is working!");
         
-        // Wait for Supabase to load
         if (typeof window.supabase === 'undefined') {
             console.error('❌ Supabase library not loaded!');
-            document.getElementById('errorMessage').textContent = 'Error: Supabase not loaded';
-            document.getElementById('errorMessage').style.display = 'block';
         } else {
-            // Supabase is ready
             const SUPABASE_URL = 'https://naogkvryaxnbkzspqakn.supabase.co';
             const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hb2drdnJ5YXhuYmt6c3BxYWtuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDYyODAsImV4cCI6MjA4ODI4MjI4MH0.IHkpF8GMZD4GPawrI0Se73N18E__P7Ys7BmhT8fr29o';
 
@@ -66,7 +61,8 @@
                         throw error;
                     }
 
-                    window.location.href = 'index.html';
+                    // ✅ Redirect to dashboard after login
+                    window.location.href = 'dashboard.html';
 
                 } catch (error) {
                     console.error('Login Error:', error.message);

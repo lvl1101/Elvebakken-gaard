@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dyrene på gården</title>
     <link rel="stylesheet" href="Stiler.css">
-    <script src="prsojekt.js"></script>
 </head>
 <body>
     <header>
@@ -17,7 +16,7 @@
             <a href="dyrene_paa_gaarden.html" class="dyr-knapp" data-translate="dyrKnapp">Dyrene våre</a>
             <a href="historien_til_elvebakk_gård.html" class="historie-knapp" data-translate="historieKnapp">Historien til gården</a>
             <a href="login.html" class="login-knapp">Login</a>
-
+            
             <!-- Instillinger m/ meny -->
             <div id="settingsMenu" class="settings-menu" role="menu">
                 <!-- Tema -->
@@ -32,7 +31,7 @@
                         <span data-translate="themeDark">Mørkt tema</span>
                     </label>
                 </details>
-
+                
                 <!-- Språk -->
                 <details>
                     <summary data-translate="languageSummary">Språk</summary>
@@ -48,17 +47,6 @@
         </nav>
     </header>
 
-    <!-- Denne vises kun når du er logget inn -->
-    <div id="adminPanel" style="display:none;">
-        <h3>Last opp nytt bilde her</h3>
-        <input type="file" id="bildeValg" accept="image/*">
-        <!-- Vi forteller knappen hvilken mappe den skal bruke -->
-        <button id="lastOppKnapp" data-mappe="Bilder">Legg ut bilde</button>
-    </div>
-
-    <!-- Her dukker bildene opp -->
-    <div id="bildeGalleri"></div>
-
-
+    <script src="prsojekt.js"></script>
 </body>
 </html>
